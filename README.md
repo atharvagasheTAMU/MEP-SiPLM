@@ -25,6 +25,7 @@ Download dataset from Zenodo ([zenodo](https://zenodo.org/records/10951915?token
 
 ## Zero-shot Mutation Effect Inference
 ```
+conda activate mep_env
 cd benchmark
 python ESM2.py # ESM2 zero-shot mutation effect prediction using wild-type marginal and masked marginal methods: https://huggingface.co/blog/AmelieSchreiber/mutation-scoring
 ```
