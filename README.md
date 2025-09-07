@@ -7,11 +7,25 @@ conda create -n mep_env python=3.10 pytorch=2.3.1
 pip install torch==2.3.1 --index-url https://download.pytorch.org/whl/cu121
 pip install fair-esm
 pip install transformers
-conda install -c conda-forge -c bioconda foldseek
 pip install scipy
 pip install pandas
+
 #optional: only needed for GearNet
 pip install torch-scatter torch-cluster -f https://pytorch-geometric.com/whl/torch-2.3.1+cu122.html
+pip install torchdrug
+pip install easydict pyyaml
+
+#optional: only needed for SaProt
+conda install -c conda-forge -c bioconda foldseek
+
+#optional: only needed for ESM-IF
+conda create -n esm_inverse python=3.9 #hasn't figure out a way to install all required packages into the same environment. Mainly because the complit between python, pytorch and pyg
+conda activate esm_inverse
+conda install pytorch cudatoolkit=11.3 -c pytorch
+conda install pyg -c pyg -c conda-forge
+conda install pip
+pip install biotite
+pip install git+https://github.com/facebookresearch/esm.git
 ```
 ## Installation
 ```
