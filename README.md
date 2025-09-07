@@ -1,7 +1,7 @@
 # Protein Mutation Effect Prediction using structure information and protein language model
 
 ## Prerequisites:
-A conda env with: Python, Pytorch, Pandas, Numpy, ESM
+Setting up environment
 ```
 conda create -n mep_env python=3.10 pytorch=2.3.1
 pip install torch==2.3.1 --index-url https://download.pytorch.org/whl/cu121
