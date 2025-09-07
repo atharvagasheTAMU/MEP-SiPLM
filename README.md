@@ -11,7 +11,8 @@ conda install -c conda-forge -c bioconda foldseek
 ```
 ## Installation
 ```
-git clone https://github.com/yxliu-TAMU/MEP-SiPLM \
+git clone --branch update https://github.com/yxliu-TAMU/MEP-SiPLM
+
 Download dataset from Zenodo ([zenodo](https://zenodo.org/records/10951915?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjdmNDkzYjdjLWY3YzUtNGE1MC1hMGZhLWYyYmRkZWVkMDllMyIsImRhdGEiOnt9LCJyYW5kb20iOiJjMmM2MzVmZTY1YWYyY2JlYTE1YjBkMGI0NWJjNmQ3YSJ9.hx6zOm4OM-RnW4iMSUUlGulEhFbm5uCG3wT48V60nngr-a5dwEd7Z6sITZM7R2age66kDCQON3L3pXLZWccXgg))
 ```
 
