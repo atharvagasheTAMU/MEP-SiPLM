@@ -21,6 +21,11 @@ Download dataset from Zenodo ([zenodo](https://zenodo.org/records/10951915?token
 --dataset: ProteinGym dataset and related files. (unzip from Zenodo link)
 ```
 
+## Zero-shot Mutation Effect Inference
+```
+cd benchmark
+python ESM2.py # ESM2 zero-shot mutation effect prediction using wild-type marginal and masked marginal methods: https://huggingface.co/blog/AmelieSchreiber/mutation-scoring
+```
 ## To Do:
 ```
 1. 7 proteins' sequence and structure not match: seq_id: {A0A140D2T1_ZIKV_Sourisseau_2019, BRCA2_HUMAN_Erwood_2022_HEK293T, CAS9_STRP1_Spencer_2017_positive, P53_HUMAN_Giacomelli_2018_Null_Etoposide, P53_HUMAN_Giacomelli_2018_Null_Nutlin, P53_HUMAN_Giacomelli_2018_WT_Nutlin,
