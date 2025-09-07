@@ -18,7 +18,7 @@ Download dataset from Zenodo ([zenodo](https://zenodo.org/records/10951915?token
 ```
 --benchmark: scripts to evaluate the previous models performance\
 --data: scripts to preprocess the dataset\
---dataset: ProteinGym dataset and related files.
+--dataset: ProteinGym dataset and related files. (unzip from Zenodo link)
 ```
 
 ## To Do:
