@@ -8,6 +8,10 @@ pip install torch==2.3.1 --index-url https://download.pytorch.org/whl/cu121
 pip install fair-esm
 pip install transformers
 conda install -c conda-forge -c bioconda foldseek
+pip install scipy
+pip install pandas
+#optional: only needed for GearNet
+pip install torch-scatter torch-cluster -f https://pytorch-geometric.com/whl/torch-2.3.1+cu122.html
 ```
 ## Installation
 ```
