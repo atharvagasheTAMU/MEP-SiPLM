@@ -2,6 +2,7 @@
 
 ## Prerequisites:
 A conda env with: Python, Pytorch, Pandas, Numpy, ESM
+pip install torch==2.3.1 --index-url https://download.pytorch.org/whl/cu121
 
 ## Installation
 ```
