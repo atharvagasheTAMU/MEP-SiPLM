@@ -5,7 +5,7 @@ Setting up environment
 ```
 conda create -n mep_env python=3.10 pytorch=2.3.1
 pip install torch==2.3.1 --index-url https://download.pytorch.org/whl/cu121
-pip install fair-esm
+pip install git+https://github.com/facebookresearch/esm.git #newest version needed for ESM-IF (https://github.com/facebookresearch/esm/pull/386)
 pip install transformers
 pip install scipy
 pip install pandas
