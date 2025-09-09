@@ -9,9 +9,10 @@ pip install git+https://github.com/facebookresearch/esm.git #newest version need
 pip install transformers
 pip install scipy
 pip install pandas
+pip install h5py
 
 #optional: only needed for GearNet
-pip install torch-scatter torch-cluster -f https://pytorch-geometric.com/whl/torch-2.3.1+cu122.html
+pip install torch-scatter torch-cluster -f https://data.pyg.org/whl/torch-2.3.1+cu121.html
 pip install torchdrug
 pip install easydict pyyaml
 
