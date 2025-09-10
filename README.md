@@ -43,6 +43,22 @@ conda activate mep_env
 cd benchmark
 python ESM2.py # ESM2 zero-shot mutation effect prediction using wild-type marginal and masked marginal methods: https://huggingface.co/blog/AmelieSchreiber/mutation-scoring
 ```
+## Precomputer Embedding
+```
+cd data
+python get_esm_embedding.py --file_list job_12h_1_files.txt [choose from 1 to 4, each will spend around 15h using A100]
+python get_SaProt_embedding.py --file_list job_12h_1_files.txt [choose from 1 to 4]
+python get_GearNet_embedding.py
+python get_esm_IF_embedding.py
+```
+## Model Training
+```
+cd supervised
+python train.py --embedding_list esm2 esm_if gearnet --test_fold 0 --ckpt_path ../ckpt/esm2_struc/fold0/ #embedding list choose from: [saprot, esm2, esm_if, gearnet], test_fold: [0,1,2,3,4]
+```
+## Evaluation
+python evaluation.py  --embedding_list esm2 esm_if gearnet --test_fold 0 --ckpt_path ../ckpt/esm2_struc/fold0/mlp_best_fold0.pt --dms_csv ../dataset/ProteinGym/substitution_split/A0A1I9GEU1_NEIME_Kennouche_2019.csv #make sure embedding list is the same as your training list
+
 ## To Do:
 ```
 1. 7 proteins' sequence and structure not match: seq_id: {A0A140D2T1_ZIKV_Sourisseau_2019, BRCA2_HUMAN_Erwood_2022_HEK293T, CAS9_STRP1_Spencer_2017_positive, P53_HUMAN_Giacomelli_2018_Null_Etoposide, P53_HUMAN_Giacomelli_2018_Null_Nutlin, P53_HUMAN_Giacomelli_2018_WT_Nutlin,
