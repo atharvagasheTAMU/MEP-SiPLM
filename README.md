@@ -44,6 +44,8 @@ cd benchmark
 python ESM2.py # ESM2 zero-shot mutation effect prediction using wild-type marginal and masked marginal methods: https://huggingface.co/blog/AmelieSchreiber/mutation-scoring
 ```
 ## Precomputer Embedding
+
+Not needed if you download the dataset from Zenodo in the Installation Step
 ```
 cd data
 python get_esm_embedding.py --file_list job_12h_1_files.txt [choose from 1 to 4, each will spend around 15h using A100]
