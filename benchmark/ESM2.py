@@ -4,7 +4,7 @@ from scipy.stats import spearmanr
 
 import numpy as np
 import pandas as pd
-
+import pdb
 from tqdm import tqdm
 import os
 def convert_mutation_string(hgvs_string):
@@ -65,8 +65,8 @@ def esm_encode(model,repr_layers,tokenizer,seq):
 def wt_marginals(alphabet,mt_seq_list,logits):
     score_dict = {}
     for index,row in mt_seq_list.iterrows():
-        mutant = row["hgvs_pro"]
-        mutant = convert_mutation_string(mutant)
+        mutant = row["mutant"]
+        #mutant = convert_mutation_string(mutant)
         if ":" not in mutant:
             wt,idx,mt = mutant[2:4],int(mutant[1:-1]),mutant[-1]
         else:
@@ -106,7 +106,7 @@ def masked_marginals(model,repr_layers,alphabet,wt_seq,mt_seq_list):
     
 if __name__ == "__main__":
     reference_file = pd.read_csv("../dataset/ProteinGym/reference_files/DMS_substitutions.csv")
-    data_path = "../supervised/"
+    data_path = "../dataset/ProteinGym/substitution/"
     
     #set up esm model
     model,alphabet = pretrained.esm2_t33_650M_UR50D()
@@ -119,16 +119,17 @@ if __name__ == "__main__":
     wt_spearman_list = []
     masked_spearman_list = []
     #for index, row in reference_file.iterrows():
-    dms_id = "CAGI_LPL_ESM2"
-    wt_seq = "MESKALLVLTLAVWLQSLTASRGGVAAADQRRDFIDIESKFALRTPEDTAEDTCHLIPGVAESVATCHFNHSSKTFMVIHGWTVTGMYESWVPKLVAALYKREPDSNVIVVDWLSRAQEHYPVSAGYTKLVGQDVARFINWMEEEFNYPLDNVHLLGYSLGAHAAGIAGSLTNKKVNRITGLDPAGPNFEYAEAPSRLSPDDADFVDVLHTFTRGSPGRSIGIQKPVGHVDIYPNGGTFQPGCNIGEAIRVIAERGLGDVDQLVKCSHERSIHLFIDSLLNEENPSKAYRCSSKEAFEKGLCLSCRKNRCNNLGYEINKVRAKRSSKMYLKTRSQMPYKVFHYQVKIHFSGTESETHTNQAFEISLYGTVAESENIPFTLPEVSTNKTYSFLIYTEVDIGELLMLKLKWKSDSYFSWSDWWSSPGFAIQKIRVKAGETQKKVIFCSREKVSHLQKGKAPAVFVKCHDKSLNKKSG
-"
+    dms_id = "A0A1I9GEU1_NEIME_Kennouche_2019"
+    wt_seq = "FTLIELMIVIAIVGILAAVALPAYQDYTARAQVSEAILLAEGQKSAVTEYYLNHGEWPGDNSSAGVATSADIKGKYVQSVTVANGVITAQMASSNVNNEIKSKKLSLWAKRQNGSVKWFCGQPVTRTTATATDVAAANGKTDDKINTKHLPSTCRDDSSAS"
     seq_len = len(wt_seq)
     mt_seq_list = pd.read_csv(os.path.join(data_path,dms_id+".csv"))
     logits,representation = esm_encode(model,repr_layers,batch_converter,wt_seq)
     score_dict = wt_marginals(alphabet,mt_seq_list,logits)
+    #pdb.set_trace()
     pred_score = [value_list[0] for value_list in score_dict.values()]
     #gt_score = [value_list[1] for value_list in score_dict.values()]
-    #wt_marginals_spearman = spearmanr(pred_score,gt_score)[0]
+    gt_score = mt_seq_list["DMS_score"]
+    wt_marginals_spearman = spearmanr(pred_score,gt_score)[0]
     #wt_spearman_list.append(wt_marginals_spearman)
     
         #score_dict = masked_marginals(model,repr_layers,alphabet,wt_seq,mt_seq_list)
@@ -136,4 +137,4 @@ if __name__ == "__main__":
         #gt_score = [value_list[1] for value_list in score_dict.values()]
         #masked_marginals_spearman = spearmanr(pred_score,gt_score)[0]
         #masked_spearman_list.append(masked_marginals_spearman)
-        #print(dms_id,wt_marginals_spearman,masked_marginals_spearman)
+    print(dms_id,wt_marginals_spearman)
