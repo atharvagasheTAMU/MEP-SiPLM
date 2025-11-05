@@ -46,6 +46,7 @@ python ESM2.py # ESM2 zero-shot mutation effect prediction using wild-type margi
 ## Precomputer Embedding
 
 Not needed if you download the dataset from Zenodo in the Installation Step
+File list can be found: https://drive.google.com/drive/folders/1xB43lm6M-MuwqP4KLqEruJ4GBIuLURQY?usp=sharing
 ```
 cd data
 python get_esm_embedding.py --file_list job_12h_1_files.txt [choose from 1 to 4, each will spend around 15h using A100]
