@@ -27,7 +27,7 @@ pip install biotite==0.41.1
 ```
 git clone --branch update https://github.com/yxliu-TAMU/MEP-SiPLM
 
-Download dataset from Zenodo (https://zenodo.org/records/10976493)
+Download dataset.zip and ckpt.zip from Zenodo (https://zenodo.org/records/10976493)
 ```
 
 ## File tree
