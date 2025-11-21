@@ -11,15 +11,15 @@ pip install scipy
 pip install pandas
 pip install h5py
 
-#optional: only needed for GearNet
+#needed for GearNet
 pip install torch-scatter torch-cluster -f https://data.pyg.org/whl/torch-2.3.1+cu121.html
 pip install torchdrug
 pip install easydict pyyaml
 
-#optional: only needed for SaProt
+#needed for SaProt
 conda install -c conda-forge -c bioconda foldseek
 
-#optional: only needed for ESM-IF
+#oneeded for ESM-IF
 pip install torch_geometric
 pip install biotite==0.41.1
 ```
