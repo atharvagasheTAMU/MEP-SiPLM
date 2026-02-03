@@ -1,25 +1,44 @@
-# Protein Mutation Effect Prediction using structure information and protein language model
+# MEP-SiPLM
 
-## Prerequisites:
-A conda env with: Python, Pytorch, Pandas, Numpy, ESM
+Protein mutation effect prediction using structure information and protein
+language models, with preprocessing, training, and benchmarking utilities.
+
+## Block Diagram
+![Block Diagram](docs/block_diagram.png)
+
+## Results
+### Table 1: Average and Function Specified Spearman Score for different models
+![Table 1: Average and Function Specified Spearman Score for different models](docs/general.png)
+
+### Table 2: Spearman Score by different MSA Depth and sequence length
+![Table 2: Spearman Score by different MSA Depth and sequence length](docs/depth_sequence_length.png)
+
+### Table 3: Average and Function Specified Spearman for different trained predictors (standard deviation in the parentheses)
+![Table 3: Average and Function Specified Spearman for different trained predictors (standard deviation in the parentheses)](docs/supervised.png)
+
+## Repository Structure
+```
+benchmark/   Scripts to evaluate baseline or prior models
+data/        Dataset preprocessing and analysis notebooks
+supervised/  Supervised training and evaluation code
+```
+
+## Prerequisites
+- Python (conda recommended)
+- PyTorch
+- pandas
+- numpy
+- ESM
 
 ## Installation
 ```
-git clone https://github.com/yxliu-TAMU/MEP-SiPLM \
-Download dataset from Zenodo ([zenodo](https://zenodo.org/records/10951915?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjdmNDkzYjdjLWY3YzUtNGE1MC1hMGZhLWYyYmRkZWVkMDllMyIsImRhdGEiOnt9LCJyYW5kb20iOiJjMmM2MzVmZTY1YWYyY2JlYTE1YjBkMGI0NWJjNmQ3YSJ9.hx6zOm4OM-RnW4iMSUUlGulEhFbm5uCG3wT48V60nngr-a5dwEd7Z6sITZM7R2age66kDCQON3L3pXLZWccXgg))
+git clone https://github.com/yxliu-TAMU/MEP-SiPLM
 ```
 
-## File tree
-```
---benchmark: scripts to evaluate the previous models performance\
---data: scripts to preprocess the dataset\
---dataset: ProteinGym dataset and related files.
-```
+## Dataset
+Download the dataset from Zenodo:
+https://zenodo.org/records/10951915
 
-## To Do:
-```
-1. 7 proteins' sequence and structure not match: seq_id: {A0A140D2T1_ZIKV_Sourisseau_2019, BRCA2_HUMAN_Erwood_2022_HEK293T, CAS9_STRP1_Spencer_2017_positive, P53_HUMAN_Giacomelli_2018_Null_Etoposide, P53_HUMAN_Giacomelli_2018_Null_Nutlin, P53_HUMAN_Giacomelli_2018_WT_Nutlin,
-POLG_HCVJF_Qi_2014,}. skipped them for now.
-
-2. Several sequence have multi-mutation sequences. Skipped them for now.
-```
+## Notes
+- Some proteins have mismatched sequence/structure entries and were skipped.
+- Some sequences contain multi-mutation entries and were skipped.
