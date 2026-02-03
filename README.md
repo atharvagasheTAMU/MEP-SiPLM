@@ -1,4 +1,4 @@
-# MEP-SiPLM
+# MEP-SiPLM: Protein Mutation Effect Prediction using Structure Information and Protein Language Model
 
 Protein mutation effect prediction using structure information and protein
 language models, with preprocessing, training, and benchmarking utilities.
